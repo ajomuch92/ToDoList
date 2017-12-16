@@ -49,7 +49,7 @@ public class Status_controller {
 	}
 	
 	@DeleteMapping("/status/{id}")
-	public void delete_status(@PathVariable int id) {
-		status_service.delete_status(id);
+	public boolean delete_status(@PathVariable int id) {
+		return status_service.delete_status(id);
 	}
 }

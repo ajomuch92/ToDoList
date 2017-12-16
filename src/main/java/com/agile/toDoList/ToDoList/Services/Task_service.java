@@ -62,12 +62,13 @@ public class Task_service {
 		return this.save_task(task);
 	}
 	
-	public void delete_task(int id) {
+	public boolean delete_task(int id) {
 		if(!task_repository.findById(id).isPresent()) {
 			logger.error("Task with id="+id+" not found");
 			throw new Task_not_found_exception(id);
 		}
 		task_repository.delete(id);
+		return true;
 	}
 	
 	private Task save_task(Task task) {

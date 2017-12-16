@@ -49,7 +49,7 @@ public class Priority_controller {
 	}
 	
 	@DeleteMapping("/priority/{id}")
-	public void delete_priority(@PathVariable int id) {
-		priority_service.delete_repository(id);
+	public boolean delete_priority(@PathVariable int id) {
+		return priority_service.delete_repository(id);
 	}
 }

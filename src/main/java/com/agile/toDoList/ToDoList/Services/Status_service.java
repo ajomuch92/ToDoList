@@ -50,7 +50,7 @@ public class Status_service {
 		return status_repository.save(status);
 	}
 
-	public void delete_status(int id) {
+	public boolean delete_status(int id) {
 		if(!status_repository.findById(id).isPresent()) {
 			logger.error("Status with id="+id+" is not found");
 			throw new Status_not_found_exception(id);
@@ -61,6 +61,7 @@ public class Status_service {
 		}
 		logger.warn("Deleting status with id="+id);
 		status_repository.delete(id);
+		return true;
 	}
 
 	public Set<Task> get_status_tasks(int id) {

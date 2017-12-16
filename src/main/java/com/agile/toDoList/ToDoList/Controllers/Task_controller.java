@@ -48,7 +48,7 @@ public class Task_controller {
 	}
 	
 	@DeleteMapping("tasks/{id}")
-	public void delete_task(@PathVariable int id) {
-		task_service.delete_task(id);
+	public boolean delete_task(@PathVariable int id) {
+		return task_service.delete_task(id);
 	}
 }

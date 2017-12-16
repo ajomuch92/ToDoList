@@ -50,7 +50,7 @@ public class Priority_service {
 		return priority_repository.save(priority);
 	}
 	
-	public void delete_repository(int id) {
+	public boolean delete_repository(int id) {
 		if(!priority_repository.findById(id).isPresent()) {
 			logger.error("Priority with id="+id+" not found");
 			throw new Priority_not_found_exception(id);
@@ -61,6 +61,7 @@ public class Priority_service {
 		}		
 		logger.warn("Deleting one reposity with id="+id);
 		priority_repository.delete(id);
+		return true;
 	}
 
 	public Set<Task> get_priority_tasks(int id) {

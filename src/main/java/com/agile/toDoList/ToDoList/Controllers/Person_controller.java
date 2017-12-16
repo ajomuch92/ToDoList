@@ -49,7 +49,7 @@ public class Person_controller {
 	}
 	
 	@DeleteMapping("/persons/{id}")
-	public void delete_person(@PathVariable int id) {
-		person_service.delete_person(id);
+	public boolean delete_person(@PathVariable int id) {
+		return person_service.delete_person(id);
 	}
 }

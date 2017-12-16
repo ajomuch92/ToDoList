@@ -49,7 +49,7 @@ public class Person_service {
 		return person_repository.save(person);
 	}
 
-	public void delete_person(int id) {
+	public boolean delete_person(int id) {
 		if(!person_repository.findById(id).isPresent()) {
 			logger.error("Person with id="+id+" not found");
 			throw new Person_not_found_exception(id);
@@ -59,7 +59,8 @@ public class Person_service {
 			throw new Delete_not_allowed_exception("You can't delete the person with id="+id+"(Integrity referential)");
 		}
 		logger.warn("Delete person with id="+id);
-		person_repository.delete(id);		
+		person_repository.delete(id);
+		return true;
 	}
 
 	public Set<Task> get_person_tasks(int id) {
