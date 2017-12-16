@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -16,18 +17,15 @@ public class Task {
 	private Date date;
 	
 	@ManyToOne
-	//@JsonIgnore
-	//@JoinColumn(name="id")
+	@JoinColumn(name="id", insertable=false, updatable=false)
 	private Person person;
 	
 	@ManyToOne
-	//@JsonIgnore
-	//@JoinColumn(name="id")
+	@JoinColumn(name="id", insertable=false, updatable=false)
 	private Status status;
 	
 	@ManyToOne
-	//@JsonIgnore
-	//@JoinColumn(name="id")
+	@JoinColumn(name="id", insertable=false, updatable=false)
 	private Priority priority;
 
 	public Task() {}
