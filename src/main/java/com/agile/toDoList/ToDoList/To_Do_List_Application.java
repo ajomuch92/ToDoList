@@ -32,7 +32,7 @@ public class To_Do_List_Application {
 	
 	@Bean
 	CommandLineRunner init(Status_repository status_repository) {
-	return (evt) -> Arrays.asList("Pending, In process, Done".split(","))
+	return (evt) -> Arrays.asList("Pending,In process,Done".split(","))
 	.forEach(a -> {
 		status_repository.save(new Status(a));
 	});
@@ -40,7 +40,7 @@ public class To_Do_List_Application {
 	
 	@Bean
 	CommandLineRunner start(Person_repository person_repository) {
-	return (evt) -> Arrays.asList("Aarón, Carlos, Alexandra, Fernando, Gerardo".split(","))
+	return (evt) -> Arrays.asList("Aarón,Carlos,Alexandra,Fernando,Gerardo,Audeli".split(","))
 	.forEach(a -> {
 		person_repository.save(new Person(a));
 	});

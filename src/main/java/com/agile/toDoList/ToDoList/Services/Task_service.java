@@ -97,6 +97,7 @@ public class Task_service {
 			person_repository.save(p);
 			status_repository.save(s);
 			priority_repository.save(r);
+			logger.warn(p.getTasks());
 			return t;
 		}catch(NullPointerException ex) {
 			throw new Save_task_exception("Can't save or update a task without person, priority and status");
