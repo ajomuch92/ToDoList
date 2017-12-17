@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,18 +12,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.agile.toDoList.ToDoList.Classes.Task;
 import com.agile.toDoList.ToDoList.Services.Task_service;
 
+@CrossOrigin
 @RestController
 public class Task_controller {
 
 	@Autowired
 	Task_service task_service;
 	
-	@RequestMapping(path="/tasks", produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(path="/tasks", produces=MediaType.APPLICATION_JSON_VALUE, method=RequestMethod.GET)
 	public Iterable<Task> get_tasks(){
 		return task_service.get_tasks();
 	}

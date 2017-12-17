@@ -21,23 +21,25 @@ import com.agile.toDoList.ToDoList.Services.Task_service;
 @SpringBootTest(classes = To_Do_List_Application.class)
 //@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class To_Do_List_ApplicationTests {
-    private Task task;   
-
-    @Autowired
-    Task_service task_service;
+    private Task task;
+    Date date;
+    
     @Autowired
     Person_service person_service;
     @Autowired
     Priority_service priority_service;
     @Autowired
     Status_service status_service;
+    @Autowired
+    Task_service task_service;
     
     
     @Before
     public void setup() throws Exception {
+    	date=new Date();
     	task=new Task();
     	task.setName("Task 1");
-    	task.setDate(new Date());
+    	task.setDate(date);
     	System.out.println(person_service.get_person(1).getTasks());
     	task.setPerson(person_service.get_person(4));
     	task.setPriority(priority_service.get_priority(3));
