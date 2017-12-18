@@ -46,7 +46,7 @@ public class Priority_service {
 		}
 		priority.setId(id);
 		priority.setTasks(priority_repository.findOne(id).getTasks());
-		logger.info("Updating one reposity with id="+id);
+		logger.info("Updating one priority with id="+id);
 		return priority_repository.save(priority);
 	}
 	
@@ -59,7 +59,7 @@ public class Priority_service {
 			logger.error("Can't delete the priority("+id+") because it has dependecies");
 			throw new Delete_not_allowed_exception("You can't delete the priority with id="+id+"(Integrity referential)");
 		}		
-		logger.warn("Deleting one reposity with id="+id);
+		logger.warn("Deleting one priority with id="+id);
 		priority_repository.delete(id);
 		return true;
 	}
