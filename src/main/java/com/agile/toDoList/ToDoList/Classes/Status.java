@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -16,7 +17,7 @@ public class Status {
 	@GeneratedValue
 	private int id;
 	private String status;
-	@OneToMany(mappedBy="status")
+	@OneToMany(mappedBy="status", fetch=FetchType.EAGER)
 	@JsonIgnore
 	private Set<Task> tasks=new HashSet<>();
 	

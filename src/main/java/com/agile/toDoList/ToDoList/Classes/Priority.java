@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -18,7 +19,7 @@ public class Priority {
 	private int id;
 	private String name;
 	private int value;
-	@OneToMany(mappedBy="priority")
+	@OneToMany(mappedBy="priority", fetch=FetchType.EAGER)
 	@JsonIgnore
 	private Set<Task> tasks=new HashSet<>();
 	

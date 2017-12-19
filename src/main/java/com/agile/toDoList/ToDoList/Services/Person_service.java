@@ -69,7 +69,7 @@ public class Person_service {
 			throw new Person_not_found_exception(id);
 		}
 		logger.info("Finding person's tasks");
-		return person_repository.findOne(id).getTasks();
+		return person_repository.findById(id).get().getTasks();
 	}
 	
 

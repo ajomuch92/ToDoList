@@ -69,7 +69,7 @@ public class Status_service {
 			logger.error("Status with id="+id+" is not found");
 			throw new Status_not_found_exception(id);
 		}
-		return status_repository.findOne(id).getTasks();
+		return status_repository.findById(id).get().getTasks();
 	}
 
 }

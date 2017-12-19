@@ -69,6 +69,6 @@ public class Priority_service {
 			logger.error("Priority with id="+id+" not found");
 			throw new Priority_not_found_exception(id);
 		}
-		return priority_repository.findOne(id).getTasks();
+		return priority_repository.findById(id).get().getTasks();
 	}
 }
